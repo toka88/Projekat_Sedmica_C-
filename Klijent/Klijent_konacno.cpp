@@ -21,17 +21,13 @@ int main (int argc, char* argv[])
     int number; 
     char tmpstr [30]; 
     int received; 
-    char * token; 
     char ans; 
-    ftp_states stat; 
-    char path[30]; 
 
     if(argc != 2) 
     { 
         printf("\n Usage: %s <ip of server> \n",argv[0]); 
         return 1; 
     } 
-    memset(recvBuff, 0,sizeof(recvBuff)); 
     /* kreiraj socket za komunikaciju sa serverom */
     if((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) 
     { 
@@ -59,15 +55,15 @@ serv_addr
     }
 
     cout << "Are you OLD or NEW player...[o/n]... "<<endl;
-    gets(message);
+    cin >> message;
     write(sockfd, message, strlen(message));
 
     cout<< "Username: "<<endl;
-    gets(message);
+    cin >> message;
     write(sockfd, message, strlen(message));
 
     cout << "Password"<<endl;
-    gets(message);
+    cin >> message;
     write(sockfd, message, strlen(message));
 
     received = read(sockfd, message, 255);
