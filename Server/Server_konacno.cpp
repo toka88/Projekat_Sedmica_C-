@@ -101,8 +101,9 @@ int main( int argc, char *argv[] )
             }
 
         }
-
-
+        message = "wait";
+        write(newsockfd, message, strlen(message));
+        
         cout << "Cekanje na drugog korisnika" << endl;
         while(!petlja)
         {
